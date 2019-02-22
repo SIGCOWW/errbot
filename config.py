@@ -8,6 +8,7 @@ else:
     BACKEND = 'Text'
 
 BOT_DATA_DIR = './data'
+os.mkdir(BOT_DATA_DIR)
 BOT_EXTRA_PLUGIN_DIR = './plugins'
 
 BOT_LOG_FILE = './errbot.log'

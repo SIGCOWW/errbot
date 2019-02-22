@@ -49,8 +49,12 @@ def get_imageurl(query):
 
 class Sigcoww(BotPlugin):
     @botcmd
-    def daedline(self, msg, args):
+    def deadline(self, msg, args):
         return os.environ['DAEDLINE'] if 'DAEDLINE' in os.environ else '???'
+
+    @botcmd
+    def motivation(self, msg, args):
+        return get_imageurl('モチベーションアップ ポスター')
 
     @botcmd(split_args_with=None)
     def lrks(self, msg, args):
