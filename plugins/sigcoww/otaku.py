@@ -40,6 +40,6 @@ def get_imageurl(query):
     engineid = os.environ['CUSTOM_SEARCH_ENGINEID']
 
     service = build('customsearch', 'v1', developerKey=apikey)
-    result = service.cse().list(q=query, cx=engineid, searchType='image', num=10, start=random.randint(0, 9) * 10).execute()
+    result = service.cse().list(q=query, cx=engineid, searchType='image', num=10, start=random.randint(0, 9) * 10 + 1).execute()
     if len(result['items']) == 0: return None
     return random.choice(result['items'])['link']
