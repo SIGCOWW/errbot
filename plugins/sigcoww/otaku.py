@@ -2,6 +2,7 @@ import os
 import re
 import csv
 import random
+import math
 from googleapiclient.discovery import build
 
 def yourname(filename, args):
@@ -39,7 +40,13 @@ def get_imageurl(query):
     apikey = os.environ['CUSTOM_SEARCH_APIKEY']
     engineid = os.environ['CUSTOM_SEARCH_ENGINEID']
 
+    idx = 0
+    val = random.random()
+    for x in [ math.sqrt(0.1 * (i+1)) for i in range(10) ]:
+        if val < x: break
+        idx += 1
+
     service = build('customsearch', 'v1', developerKey=apikey)
-    result = service.cse().list(q=query, cx=engineid, searchType='image', num=10, start=random.randint(0, 9) * 10 + 1).execute()
+    result = service.cse().list(q=query, cx=engineid, searchType='image', num=10, start=idx*10 + 1).execute()
     if len(result['items']) == 0: return None
     return random.choice(result['items'])['link']

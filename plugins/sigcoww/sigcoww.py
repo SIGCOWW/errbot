@@ -5,7 +5,7 @@ import otaku
 class Sigcoww(BotPlugin):
     @botcmd
     def deadline(self, msg, args):
-        return os.environ['DAEDLINE'] if 'DAEDLINE' in os.environ else '???'
+        return os.environ['DEADLINE'] if 'DEADLINE' in os.environ else '???'
 
     @botcmd
     def motivation(self, msg, args):
